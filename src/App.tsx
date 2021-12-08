@@ -1,20 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import "./App.css";
+import { TextContext } from "./hooks/TextContext";
 
 export default function App() {
-  const [text, setText] = useState("");
-
-  useEffect(() => {
-    // console.log(text);
-  }, [text]);
+  const { text, handleTextUpdate } = useContext(TextContext);
 
   return (
     <div className="App">
       <textarea
         value={text}
-        // should call function here instead
-        // this should be in context
-        onChange={(event) => setText(event.target.value)}
+        onChange={(event) => handleTextUpdate(event.target.value)}
         cols={60}
         rows={30}
       ></textarea>
