@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState } from 'react';
 
 interface ITextContext {
   suggestion: string | undefined;
@@ -18,7 +18,7 @@ interface IProps {
 
 export const TextProvider = (props: IProps) => {
   const [suggestion, setSuggestion] = useState<string | undefined>(undefined);
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const handleTextUpdate = (updatedText: string) => {
     // TODO check for acronyms here
