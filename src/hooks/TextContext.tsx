@@ -14,9 +14,12 @@ export const TextContext = createContext<ITextContext>({} as ITextContext);
 
 interface IProps {
   children: ReactNode;
+  acronymCollection: { [key: string]: string };
 }
 
 export const TextProvider = (props: IProps) => {
+  const { children, acronymCollection } = props;
+
   const [suggestion, setSuggestion] = useState<string | undefined>(undefined);
   const [text, setText] = useState('');
 
@@ -33,8 +36,6 @@ export const TextProvider = (props: IProps) => {
   };
 
   return (
-    <TextContext.Provider value={textContext}>
-      {props.children}
-    </TextContext.Provider>
+    <TextContext.Provider value={textContext}>{children}</TextContext.Provider>
   );
 };

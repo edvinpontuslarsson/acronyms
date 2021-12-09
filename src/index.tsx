@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { TextProvider } from './hooks/TextContext';
+import { acronymCollection } from './data/provider';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TextProvider>
+    <TextProvider acronymCollection={acronymCollection}>
       <App />
     </TextProvider>
   </React.StrictMode>,
